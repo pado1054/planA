@@ -1,0 +1,943 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Plan A - 여행을 알차게!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+   <link rel="stylesheet" href="css/style.css">
+   <!-- 동하 탭 선택시 색상변경 -->
+   <style>
+      *{
+			font-family: '나눔바른고딕';
+		}
+
+		h1, h2, h3, h4, h5, h6{
+			font-family: '나눔바른고딕';
+		}
+		
+		#footer-div{
+			background-color: #F8F9FA;
+			height:40%;
+        } 
+
+            /* 선택안될때 */
+            .nav-pills  .nav-link, .nav-pills .show > .nav-link {
+                color: #fff;
+                border: 1px solid #e2c0bb;
+            background-color:#e2c0bb;
+            }
+        /* 선택될때 */
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: #fff;
+            /* background-color: #f2aab8c5; */
+            background-color: #BF756A;
+            /* border: 1px solid #f2aab8c5; */
+            border: 1px solid #BF756A;
+        }
+        /* table css */
+        table.type10 {
+            border-collapse: collapse;
+            text-align: left;
+            line-height: 1.5;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 500ch;
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        table.type10 thead th {
+            width: 150px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            color: #fff;
+            /* 컬럼색 */
+            background: #b2bbc9;
+            margin: 20px 10px;
+        }
+        table.type10 tbody th {
+            width: 150px;
+            padding: 10px;
+            /* background: #E6E6E6; */
+        }
+
+        table.type10 td {
+            width: 350px;
+            padding: 10px;
+            vertical-align: top;
+            /* 밑 색 */
+            /* background: #F5F5F5; */
+        }
+        table.type10 .even {
+            background: #e2c0bb;
+        }
+        table.type10{
+            border-collapse: collapse;
+            border-radius: 1em;
+                overflow: hidden;
+        }
+        table.type10 td.avenl{
+            border-collapse: collapse;
+            border-bottom-left-radius: 1em;
+                overflow: hidden;
+        }
+        table.type10 td.avenr{
+            border-collapse: collapse;
+            border-bottom-right-radius: 1em;
+                overflow: hidden;
+        }
+        table.type10 th.aventl{
+            border-collapse: collapse;
+            border-top-left-radius: 1em;
+                overflow: hidden;
+        }
+        table.type10 th.aventr{
+            border-collapse: collapse;
+            border-top-right-radius: 1em;
+                overflow: hidden;
+        }
+
+        table.type10 tr.airplan{
+            border-bottom: 1px dotted;
+        }
+        table.type10 th.tblreset {
+            color: #ccc;
+            border-collapse: collapse;
+            border-top-left-radius: 1em;
+            border-bottom-left-radius: 1em;
+                overflow: hidden;
+            background: #FAF4C0;
+        }
+        table.type10 th.tblsubmit {
+            color: #ccc;
+            border-collapse: collapse;
+            border-top-right-radius: 1em;
+            border-bottom-right-radius: 1em;
+                overflow: hidden;
+            background: #E4F7BA;
+      
+        }
+   </style>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <img src="images/air-transport_pink.png" width="50px">&nbsp;&nbsp;&nbsp;<a class="navbar-brand" href="index.html">Plan A</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav nav ml-auto">
+               <li class="nav-item"><a href="myRoute.html" class="nav-link"><span>나만의 여행</span></a></li>
+               <li class="nav-item"><a href="tammaInfo.html" class="nav-link"><span>테마 여행</span></a></li>
+               <li class="nav-item"><a href="travelInformation.html" class="nav-link"><span>여행지 정보</span></a></li>
+               <li class="nav-item"><a href="togetherBoardList.html" class="nav-link"><span>동행 구하기</span></a></li>
+               <li class="nav-item"><a href="review.html" class="nav-link"><span>여행 후기</span></a></li>
+               <li class="nav-item"><a href="login.html" class="nav-link"><span>로그인</span></a></li>
+               <li class="nav-item"><a href="join.html" class="nav-link"><span>회원가입</span></a></li>
+               <li class="nav-item"><a href="myPage.html" class="nav-link"><span>마이페이지</span></a></li>
+            </ul>
+            </div>
+        </div>
+    </nav><br><br><br><br><br>
+     <section>
+        <img src="../ecoland/images/bg_5.jpg" width="100%" height="300px">
+     </section>
+     <br>
+     <script>
+        function resetfn(){
+           var countryTag = document.getElementById("countryTag");
+           var cityTag = document.getElementById("cityTag");
+           var personnelTag = document.getElementById("personnelTag");
+           var hotelTag = document.getElementById("hotelTag");
+           var activityTag = document.getElementById("activityTag");
+           var TouristTag = document.getElementById("TouristTag");
+
+           countryTag.innerHTML = "";
+
+        }
+     </script>
+   <div class="ftco-section-search">
+         <div class="container">
+           <div class="row">
+            <div class="col-md-12 tabulation-search">
+              <div class="element-animate">
+               <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                 <a class="nav-link p-3 active" id="v-pills-guk-tab" data-toggle="pill" href="#v-pills-guk" role="tab" aria-controls="v-pills-guk" aria-selected="true"><span>01</span> 국가</a>
+                 <a class="nav-link p-3" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span>02</span> 항공권</a>
+                 <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>03</span> 숙소</a>
+                 <a class="nav-link p-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>04</span> 액티비티</a>
+                 <a class="nav-link p-3" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>05</span> 관광지</a>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               </div>
+               <br>
+               <form>
+               <table class="type10">
+                     <thead>
+                        <tr>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                           <th scope="cols" class="tblreset" ><a href="#" onclick="resetfn();" style="color:#FFA7A7">취소</a></th>
+                           <th scope="cols" class="tblsubmit"><a href="#" style="color:#B2CCFF">저장</a></th>
+                        </tr>
+                        <tr>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                              <th style="background: #fff;"></th>
+                        </tr>
+                     <tr>
+                        <th scope="cols" style="border-top-left-radius: 1em;">나라</th>
+                        <th scope="cols">도시</th>
+                        <th scope="cols">인원</th>
+                        <th scope="cols">숙소</th>
+                        <th scope="cols">액티비티</th>
+                        <th scope="cols" style="border-top-right-radius: 1em;">관광지</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                     <tr>
+                        <td class="avenl" id="countryTag"></td>
+                        <td id="cityTag"></td>
+                        <td id="personnelTag"></td>
+                        <td id = "hotelTag"></td>
+                        <td id = "activityTag"></td>
+                        <td id = "TouristTag"class="avenr"></td>
+                     </tr>
+                     <thead>
+                     <tr>   
+                           <th scope="cols" class="aventl">비행날짜</th>
+                           <th scope="cols">출국시간</th>
+                           <th scope="cols">출국공항</th>
+                           <th scope="cols"></th>
+                           <th scope="cols">입국공항</th>
+                           <th scope="cols" class="aventr">입국시간</th>
+                     </tr>
+                     </thead>
+                     <tr class="airplan">
+                           <td>2019-10-11</td>
+                           <td>06:00</td>
+                           <td>ICN</td>
+                           <td>→</td>
+                           <td>DAO</td>
+                           <td>18:00</td>
+                     </tr>
+                     <tr>
+                           <td class="avenl">2019-10-15</td>
+                           <td>21:00</td>
+                           <td>DAO</td>
+                           <td>→</td>
+                           <td>ICN</td>
+                           <td class="avenr">03:00</td>
+                     </tr>
+                     </tbody>
+                  </table>
+               </form>
+              </div>
+              <!-- 나만의 패키지 -->
+              <script>
+                 function mypackage(){
+                    
+                 }
+
+                 function countryfn(obj){
+                    var country = document.getElementById("country");
+
+                    var countryValue = country.options[country.selectedIndex].value;
+                  
+                    var countryTag = document.getElementById("countryTag");
+                    console.log(country);
+                    console.log(countryValue);
+                    console.log(countryTag);
+                    countryTag.innerHTML = countryValue;
+                    
+                 }
+
+                 function cityfn(obj){
+                  var city = document.getElementById("city");
+
+                  var cityValue = city.options[city.selectedIndex].value;
+                  var cityTag = document.getElementById("cityTag");
+                  cityTag.innerHTML = cityValue;
+
+                 }
+
+                 function personnelfn(obj){
+                    var personnel = document.getElementById("personnel");
+
+                    var personnelValue = personnel.options[personnel.selectedIndex].value;
+                    var personnelTag = document.getElementById("personnelTag");
+                    console.log(personnelValue);
+                    personnelTag.innerHTML = personnelValue;
+                 }
+              </script>
+              <div class="tab-content py-5" id="v-pills-tabContent">
+                  <div class="tab-pane fade show active" id="v-pills-guk" role="tabpanel" aria-labelledby="v-pills-guk-tab">
+                        <section class="ftco-section" style="padding-top:0em;">
+                              <div class="container">
+                                 <div class="row justify-content-center pb-5">
+                                <div class="col-md-12 heading-section text-center ftco-animate">
+                                             <span class="subheading">나만의 여행계획 만들기</span>
+                                            <h2 class="mb-4">나만의 패키지</h2>
+                                            <p>계획 하시는 여행일정과 정보를 입력해주세요</p>
+                                          </div>
+                                         </div>
+                        
+                                 <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="search-wrap-1 ftco-animate p-4">
+                                             <form action="#" class="search-property-1">
+                                          <div class="row">
+                                                <div class="col-lg align-items-end">
+                                                      <div class="form-group">
+                                                         <label for="#">국가</label>
+                                                         <div class="form-field">
+                                                           <div class="select-wrap">
+                                                     
+                                                     <select name="" id="country" class="form-control" onchange="countryfn(this);">
+                                                      <option value="대만">대만</option>
+                                                      <option vlaue="일본">일본</option>
+                                                      <option value="필리핀">필리핀</option>
+                                                      <option value="중국">중국</option>`
+                                                      <option value="베트남">베트남</option>
+                                                      <option value="태국">태국</option>
+                                                     </select>
+                                                   </div>
+                                                     </div>
+                                                  </div>
+                                                   </div>
+                                             <div class="col-lg align-items-end">
+                                                <div class="form-group">
+                                                   <label for="#">도시</label>
+                                                  <div class="form-field">
+                                                     <div class="icon"><span class="ion-ios-search"></span></div>
+                                                     <div class="select-wrap">
+                                                     
+                                                         <select name="" id="city" class="form-control" onchange="cityfn(this);">
+                                                           <option>다낭</option>
+                                                           <option>하노이</option>
+                                                           <option>호이안</option>
+                                                           <option>세부</option>
+                                                           <option>보홀</option>
+                                                           <option>보라카이</option>
+                                                           <option>홍콩</option>
+                                                           <option>북경</option>
+                                                           <option>상해</option>
+                                                         </select>
+                                                        </div>
+                                               </div>
+                                            </div>
+                                             </div>
+                                             <div class="col-lg align-items-end">
+                                                <div class="form-group">
+                                                   <label for="#">출발일자</label>
+                                                   <div class="form-field">
+                                                     <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                                <input type="date" id="startDate" class="form-control checkin_date" placeholder="yyyy-mm-dd">
+                                               </div>
+                                            </div>
+                                             </div>
+                                             <div class="col-lg align-items-end">
+                                                <div class="form-group">
+                                                   <label for="#">도착일자</label>
+                                                   <div class="form-field">
+                                                     <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                                <input type="date" id="endDate" class="form-control checkout_date" placeholder="Check Out Date">
+                                               </div>
+                                            </div>
+                                             </div>
+                                             <div class="col-lg align-items-end">
+                                                <div class="form-group">
+                                                   <label for="#">인원</label>
+                                                   <div class="form-field">
+                                                     <div class="select-wrap">
+                                               <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                               <select onchange="personnelfn(this);" name="" id="personnel" class="form-control">
+                                                <option value="1">1명</option>
+                                                <option value="2">2명</option>
+                                                <option value="3">3명</option>
+                                                <option value="4">4명이상</option>
+                                               </select>
+                                             </div>
+                                               </div>
+                                            </div>
+                                             </div>
+                                             <div class="col-lg align-self-end">
+                                                <div class="form-group">
+                                                   <div class="form-field">
+                                                <input type="submit" onclick="mypackage();" value="선택" class="form-control btn btn-primary">
+                                               </div>
+                                            </div>
+                                             </div>
+                                          </div>
+                                       </form>
+                                    </div>
+                                       </div>
+                                 </div>
+                              </div>
+                           </section>
+                  
+
+                        
+                  </div>
+                  <!--항공권  -->
+               <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                     
+                  
+
+                        <section class="ftco-section" style="padding-top:0em;">
+                              <div class="container">
+                                 <div class="row justify-content-center pb-5">
+                                <div class="col-md-12 heading-section text-center ftco-animate">
+                                   <span class="subheading">나만의 항공권</span>
+                                 <h2 class="mb-4">항공권 상세 결과</h2>
+                                 <p>나만의 항공권을 선택해주세요</p>
+                                </div>
+                              </div>
+                              <div class="col-md-12 ftco-animate">
+                                    <div id="aTicket" class="box p-2 px-3 bg-light d-flex" style="position: relative; left: 20%; width: 60%"  >
+                                       <div class="icon mr-3">
+                                          <span class="icon-fighter-jet"></span>
+                                       </div>
+                                       <div style="display: inline;">
+                                             <spen style="display: inline;">
+                                                <h5 class="mb-3" style="display: inline;" >yyyy-mm-dd</h5>
+                                                <a class="mb-3" style="display: inline;">출발</a>
+                                             </spen>
+                                             
+                                             <div style="position: relative; left: 50%; ">
+                                                <table style="text-align: center;">
+                                                   <tr>
+                                                      <td>(ICN)</td>
+                                                      <td>오전 00시</td>
+                                                      <td><img src="../ecoland/images/dongbi.PNG"></td>
+                                                      <td>오후 00시</td>
+                                                      <td>(DAD)</td>
+                                                   </tr>
+                                                </table>
+                                             </div>
+                                         </div>
+                                    </div>
+                                    <div class="box p-2 px-3 bg-light d-flex" style="position: relative; left: 20%; width: 60%"  >
+                                          <div class="icon mr-3">
+                                             <span class="icon-fighter-jet"></span>
+                                          </div>
+                                          <div style="display: inline;">
+                                                <spen style="display: inline;">
+                                                      <h5 class="mb-3" style="display: inline;" >yyyy-mm-dd</h5>
+                                                      <a class="mb-3" style="display: inline;">도착</a>
+                                                   </spen>
+                                                <div style="position: relative; left: 50%; ">
+                                                <table style="text-align: center;">
+                                                   <tr>
+                                                      <td>(DAD)</td>
+                                                      <td>오전 00시</td>
+                                                      <td><img src="../ecoland/images/dongbi.PNG"></td>
+                                                      <td>오후 00시</td>
+                                                      <td>(ICN)</td>
+                                                   </tr>
+                                                </table>
+                                             </div>
+                                            
+                                         </div>
+                                       </div>
+                                 </div>
+                                 <br>
+                                 <div class="col-md-12 ftco-animate">
+                                       <div id="aTicket" class="box p-2 px-3 bg-light d-flex" style="position: relative; left: 20%; width: 60%"  >
+                                          <div class="icon mr-3">
+                                             <span class="icon-fighter-jet"></span>
+                                          </div>
+                                          <div style="display: inline;">
+                                                <spen style="display: inline;">
+                                                   <h5 class="mb-3" style="display: inline;" >yyyy-mm-dd</h5>
+                                                   <a class="mb-3" style="display: inline;">출발</a>
+                                                </spen>
+                                                
+                                                <div style="position: relative; left: 50%; ">
+                                                   <table style="text-align: center;">
+                                                      <tr>
+                                                         <td>(ICN)</td>
+                                                         <td>오전 00시</td>
+                                                         <td><img src="../ecoland/images/dongbi.PNG"></td>
+                                                         <td>오후 00시</td>
+                                                         <td>(DAD)</td>
+                                                      </tr>
+                                                   </table>
+                                                </div>
+                                            </div>
+                                       </div>
+                                       <div class="box p-2 px-3 bg-light d-flex" style="position: relative; left: 20%; width: 60%"  >
+                                             <div class="icon mr-3">
+                                                <span class="icon-fighter-jet"></span>
+                                             </div>
+                                             <div style="display: inline;">
+                                                   <spen style="display: inline;">
+                                                         <h5 class="mb-3" style="display: inline;" >yyyy-mm-dd</h5>
+                                                         <a class="mb-3" style="display: inline;">도착</a>
+                                                      </spen>
+                                                   <div style="position: relative; left: 50%; ">
+                                                   <table style="text-align: center;">
+                                                      <tr>
+                                                         <td>(DAD)</td>
+                                                         <td>오전 00시</td>
+                                                         <td><img src="../ecoland/images/dongbi.PNG"></td>
+                                                         <td>오후 00시</td>
+                                                         <td>(ICN)</td>
+                                                      </tr>
+                                                   </table>
+                                                </div>
+                                               
+                                            </div>
+                                          </div>
+                                    </div>
+                           </section>
+                  </div>
+               
+               <!-- 숙소 -->
+               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                     
+                        <section class="ftco-section" style="padding-top:0em;">
+                              <div class="container">
+                                 <div class="row justify-content-center pb-5">
+                                <div class="col-md-12 heading-section text-center ftco-animate">
+                                   <span class="subheading">나만의 숙소</span>
+                                 <h2 class="mb-4">숙소 상세 결과</h2>
+                                 <p>나만의 숙소를 선택해 주세요</p>
+                                 <br>
+                                </div>
+                                <script>
+                                    function dongSukso(obj){
+                                       
+                                       var sukso = document.getElementById(obj);
+                                       console.log(obj)
+                                       if(sukso.style.display == "block"){
+                                          sukso.style.display = "none";
+                                       }else{
+                                          sukso.style.display = "block";
+                                       }
+                                       
+                                    }
+
+                                    function hotel(hotelId){
+                                    
+                                    var hotelTag = document.getElementById("hotelTag");
+                                    hotelTag.innerHTML = hotelId;
+                                    }
+                                 </script>
+
+                                <!-- 다낭 -->
+                                <div class="container">
+                                    <div class="row" id="danang">
+                                       <!-- 베트남_다낭_숙소1 -->
+                                       <div class="col-md-6 col-lg-4 ftco-animate">
+                                          <div class="project">
+                                             <div class="img">
+                                                <a onclick="dongSukso(this.name);" id="danangSukso" name="danangSukso1"><img src="images/hotel-1.jpg" class="img-fluid" alt="Colorlib Template" ></a>
+                                             </div>
+                                             <div class="text">
+                                                
+                                                <span>다낭</span>
+                                                <h3><a href="hotel.html">하이안 비치 호텔 & 스파</a></h3>
+                                                <div class="star d-flex clearfix">
+                                                   <div class="mr-auto float-left">
+                                                      <span class="ion-ios-star"></span>
+                                                      <span class="ion-ios-star"></span>
+                                                      <span class="ion-ios-star"></span>
+                                                      <span class="ion-ios-star"></span>
+                                                      <span class="ion-ios-star"></span>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <a href="images/hotel-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                <span class="icon-expand"></span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                       <!-- 베트남_다낭_숙소2 -->
+                                       <div class="col-md-6 col-lg-4 ftco-animate">
+                                          <div class="project">
+                                             <div class="img">
+                                                   <a onclick="dongSukso();" id="betcong"><img src="images/hotel-1.jpg" class="img-fluid" alt="Colorlib Template" value="betcong"></a>
+                                                </div>
+                                                <div class="text">
+                                                   
+                                                   <span>다낭</span>
+                                                   <h3><a href="hotel.html">하이안 비치 호텔 & 스파</a></h3>
+                                                   <div class="star d-flex clearfix">
+                                                      <div class="mr-auto float-left">
+                                                         <span class="ion-ios-star"></span>
+                                                         <span class="ion-ios-star"></span>
+                                                         <span class="ion-ios-star"></span>
+                                                         <span class="ion-ios-star"></span>
+                                                         <span class="ion-ios-star"></span>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <a href="images/hotel-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                   <span class="icon-expand"></span>
+                                                </a>
+                                             </div>
+                                          </div>
+                                       <!-- 베트남_다낭_숙소3 -->
+                                       <div class="col-md-6 col-lg-4 ftco-animate">
+                                             <div class="project">
+                                                <div class="img">
+                                                      <a onclick="dongSukso();" id="betcong"><img src="images/hotel-1.jpg" class="img-fluid" alt="Colorlib Template" value="betcong"></a>
+                                                   </div>
+                                                   <div class="text">
+                                                      
+                                                      <span>다낭</span>
+                                                      <h3><a href="hotel.html">하이안 비치 호텔 & 스파</a></h3>
+                                                      <div class="star d-flex clearfix">
+                                                         <div class="mr-auto float-left">
+                                                            <span class="ion-ios-star"></span>
+                                                            <span class="ion-ios-star"></span>
+                                                            <span class="ion-ios-star"></span>
+                                                            <span class="ion-ios-star"></span>
+                                                            <span class="ion-ios-star"></span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <a href="images/hotel-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                      <span class="icon-expand"></span>
+                                                   </a>
+                                                </div>
+                                             </div>
+
+                                             <!-- 숙소1_끝 -->
+                                    </div>
+                                    <!-- 숙소1_1 -->
+                                    <div id="danangSukso1" style="display: none;" class="sukso">
+                                       <div class="row justify-content-center pb-5 pt-5">
+                                          <div class="col-md-12 heading-section text-center ftco-animate">
+                                             <span class="subheading">Rooms &amp; Suites</span>
+                                             <h2 class="mb-4">하이안 비치 호텔 & 스파</h2>
+                                             <p>하이안 비치 호텔 & 스파 설명</p>
+                                          </div>
+                                       </div>
+
+                                       <section id="home-section " class="hero col-lg-12 " style="width: 700px; height:400px; margin-right: 0; float: left;">
+                                             <div class="home-slider owl-carousel" style="width: 700px; height:400px; float: left;">
+                                                <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; float: left;">
+                                                   <div class="container-fluid " style="width: 700px; height:400px; padding:0px; float: left;">
+                                                      <div class="  no-gutters slider-text " data-scrollax-parent="true" style="width: 700px; height:400px; float: left;">
+                                                         
+                                                            <img src="images/베트남_2베드룸_레스토랑.jpg" width="700px" height="400px" style="float: left;" >
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; ">
+                                                      <div class="container-fluid " style="width: 700px; height:400px;">
+                                                         <div class="row d-flex no-gutters slider-text align-items-center " data-scrollax-parent="true" style="width: 700px; height:400px;">
+                                                            
+                                                               <img src="images/베트남_2베드룸_수영장.jpg" width="700px" height="400px">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; ">
+                                                      <div class="container-fluid " style="width: 700px; height:400px;">
+                                                         <div class="row d-flex no-gutters slider-text align-items-center " data-scrollax-parent="true" style="width: 700px; height:400px;">
+                                                            
+                                                               <img src="images/베트남_2베드룸_숙소외관.jpg" width="700px" height="400px">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; ">
+                                                      <div class="container-fluid " style="width: 700px; height:400px;">
+                                                         <div class="row d-flex no-gutters slider-text align-items-center " data-scrollax-parent="true" style="width: 700px; height:400px;">
+                                                            
+                                                               <img src="images/베트남_2베드룸_라운지.jpg" width="700px" height="400px">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; ">
+                                                      <div class="container-fluid " style="width: 700px; height:400px;">
+                                                         <div class="row d-flex no-gutters slider-text align-items-center " data-scrollax-parent="true" style="width: 700px; height:400px;">
+                                                            
+                                                               <img src="images/베트남_2베드룸_2.jpg" width="700px" height="400px">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <!-- 슬라이드 이미지 추가-->
+                                                <div class="slider-item" style="width: 700px; ">
+                                                      <div class="container-fluid " style="width: 700px; height:400px;">
+                                                         <div class="row d-flex no-gutters slider-text align-items-center " data-scrollax-parent="true" style="width: 700px; height:400px;">
+                                                            
+                                                               <img src="images/베트남_2베드룸_3.jpg" width="700px" height="400px">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                          </section>
+                                          
+                                          <div class="col-lg-4 justify-content-center room-wrap" style="float: right; margin: auto;">
+                                            <div class="row" style="width: 300px; float: right; margin-right: 0px;">
+                                               <!-- <div class="col-md-7 d-flex ftco-animate">
+                                                  <div class="img align-self-stretch" style="background-image: url(images/베트남_2베드룸_1.jpg);"></div>
+                                               </div> -->
+                                               
+                                               <div class="ftco-animate" style="width: 400px; margin-right: 0px;">
+                                                  <div class="text py-5">
+                                                     
+                                                     <h3><a href="hotel-single.html">2베드룸 아파트</a></h3>
+                                                     <p class="pos">요금 <span class="price">&#8361;76,000</span>/1박</p>
+                                                     <div class="icon mr-3">
+                                                        <span class="icon-check"> Wi-fi : 무료</span><br>
+                                                        <span class="icon-check"> 조식 : 제공</span><br>
+                                                        <span class="icon-check"> 취소환불 : 1일전까지 전액</span><br>
+                                                        <span class="icon-check"> 공항 이동 서비스 제공</span><br>
+                                                        <span class="icon-check"> 해변까지 90m</span><br><br>
+                                                     </div>
+                                                     <p><a id="하이안비치" onclick="hotel(this.id);" class="btn btn-secondary">선택</a></p>
+                                                     
+                                                  </div>
+                                               </div>
+                                            </div>
+                                            </div>
+                                         </div>
+
+
+                                    </div>
+                                    </div>
+                                 </div>
+                           </section>
+                           
+               </div>
+               <!-- 액티비티 -->
+               <script>
+                     function activity(clicked_id){
+                        var activityTag = document.getElementById("activityTag");
+                         activityTag.innerHTML = clicked_id;
+                     }
+                  </script>
+               <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                     
+                           <div class="col-md-12 heading-section text-center ftco-animate">
+                                 <span class="subheading">나만의 액티비티</span>
+                                <h2 class="mb-4">액티비티 상세 결과</h2>
+                                <p>나만의 액티비티를 선택해 주세요</p>
+                              </div>
+                              <br>
+                           <div class="row d-flex">
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry justify-content-end">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_액티비티1.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading" ><a href="single.html">스노쿨링</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                          <p class="mb-0"><a onclick="activity(this.id);" id="스노쿨링" class="btn btn-primary" value="스노쿨링">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                          
+
+                                       </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry justify-content-end">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_액티비티2.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading"><a href="single.html">페러세일링</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                          <p class="mb-0"><a onclick="activity(this.id);" id="페러세일링" class="btn btn-primary" value="페러세일링">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                          
+                                       </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_액티비티3.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading"><a href="single.html">서핑</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                         <p class="mb-0"><a onclick="activity(this.id);" id="서핑" class="btn btn-primary" value="페러세일링">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                        
+                                      </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                </div>
+                        
+               </div>
+               <!-- 관광지 -->
+               <script>
+                  function Tourist(clicked_id){
+                     var TouristTag = document.getElementById("TouristTag");
+                     TouristTag.innerHTML = clicked_id;
+                  }
+               </script>
+               <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" >
+                     
+                        <div class="container">
+                              <div class="row justify-content-center pb-5">
+                             <div class="col-md-12 heading-section text-center ftco-animate">
+                                <span class="subheading">나만의 관광지</span>
+                              <h2 class="mb-4">관광지 상세 결과</h2>
+                              <p>나만의 관광지를 선택해 주세요</p>
+                             </div>
+                           </div>
+                              
+                     </div>
+                           <div class="row d-flex">
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry justify-content-end">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_관광지1.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading"><a href="single.html">나트랑 해변</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                          <p class="mb-0"><a onclick="Tourist(this.id);" id="나트랑해변" href="#" class="btn btn-primary">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                          
+                                       </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry justify-content-end">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_관광지2.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading"><a href="single.html">바나힐</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                          <p class="mb-0"><a onclick="Tourist(this.id);" id="바나힐" class="btn btn-primary">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                          
+                                       </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                                    <div class="blog-entry">
+                                    <a href="single.html" class="block-20" style="background-image: url('images/베트남_관광지3.jpg');">
+                                    </a>
+                                    <div class="text float-right d-block">
+                                       
+                                      <h3 class="heading"><a href="single.html">하노이 야시장</a></h3>
+                                      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <div class="d-flex align-items-center mt-4 meta">
+                                         <p class="mb-0"><a onclick="Tourist(this.id);" id="하노이야시장" class="btn btn-primary">선택 <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                        
+                                      </div>
+                                    </div>
+                                   </div>
+                                 </div>
+                                </div>
+                                </div>
+                                
+              </div>
+            </div>
+           </div>
+         </div>
+        </div>
+
+        <footer class="ftco-footer ftco-section" id="footer-div">
+            <div class="container">
+                <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <p><font size="5" color="#E2C0BB">About </font>&nbsp;<span><a href="index.html"><font size="5" color="gray">Plan A</font></a></span></p>
+                    <p><font color="gray">Plan A에서 자유롭게 여행을 계획해 보세요.</font></p>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <p><font size="5" color="#E2C0BB">Information</font></p>
+                    <ul class="list-unstyled">
+                        <li><i class="icon-building-o"></i>&nbsp;&nbsp;서울시 강남구 테헤란로 14길 6</li>
+                        <li><i class="icon-group"></i>&nbsp;&nbsp;여행을 떠나조</li>
+                        <li></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <p><font size="5" color="gray">Have a</font>&nbsp;<font size="5" color="#E2C0BB">Questions?</font></p>
+                        <div class="block-23 mb-3">
+                        <ul>
+                            <li><i class="icon-phone"></i>&nbsp;&nbsp;02-201-9010</li>
+                            <li><i class="icon-envelope-o"></i>&nbsp;&nbsp;travelwith@plana.com</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12 text-center">
+            
+                    <p><font color="gray"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by </font><a href="https://colorlib.com" target="_blank"><font color="gray">Colorlib</font></a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+                </div>
+            </div>
+        </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
